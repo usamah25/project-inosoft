@@ -13,7 +13,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        echo "Hello World";
+        $name = 'Usamah';
+        return view('book', ['name' => $name]);
     }
 
     /**
