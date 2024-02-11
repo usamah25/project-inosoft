@@ -15,10 +15,6 @@ import { createApp } from 'vue';
 
 const app = createApp({});
 
-import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
-import ToDoComponent from './components/ToDoComponent.vue';
-app.component('to-do', ToDoComponent);
 import CartComponent from './components/CartComponent.vue';
 app.component('cart', CartComponent);
 

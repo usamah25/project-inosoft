@@ -47,6 +47,9 @@
                     <td>{{ item.quantity }}</td>
                     <td>{{ item.price }}</td>
                     <td>{{ item.quantity * item.price }}</td>
+                    <td>
+                        <button @click="removeItemFromCart(index)" class="btn btn-danger">Remove</button>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="3" class="text-right"><strong>Total Keseluruhan</strong></td>
@@ -112,6 +115,14 @@
             calculateTotal() {
                 return this.cart.reduce((total, item) => total + item.quantity * item.price, 0);
             },
+            removeItemFromCart(index) {
+                const item = this.cart[index];
+                const productIndex = this.products.findIndex(product => product.name === item.name);
+                if (productIndex !== -1) {
+                    this.products[productIndex].stock += item.quantity;
+                }
+                this.cart.splice(index, 1);
+            }
 
         }
     }
